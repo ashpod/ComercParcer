@@ -38,8 +38,7 @@ foreach ($resultid[1] as $res) {
     $zap=array();
     $url = "http://erau.unba.org.ua/profile/$res";
     $html = curl_content($url);
-    preg_match("/\<p class\=\"info\-about\_\_name\"\>(\S{0,20}.\S{0,20}.\S{0,20})/", $html,$name);
-    //$name[1] - имя
+    preg_match("/<title>(\S{0,}\s\S{0,}\s\S{0,})/", $html,$name);
     $zap[]=$name[1];
     var_dump($name[1]);
     preg_match("/\<a href\=\"tel:(.{0,})\"\>/", $html,$tel);
